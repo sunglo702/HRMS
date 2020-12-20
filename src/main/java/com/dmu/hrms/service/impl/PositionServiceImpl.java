@@ -1,12 +1,9 @@
 package com.dmu.hrms.service.impl;
 
-import com.dmu.hrms.bean.Dept;
 import com.dmu.hrms.bean.Position;
 import com.dmu.hrms.mapper.DeptMapper;
 import com.dmu.hrms.mapper.PositionMapper;
 import com.dmu.hrms.service.IPositionService;
-import javafx.geometry.Pos;
-import org.apache.ibatis.datasource.pooled.PoolState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +20,8 @@ public class PositionServiceImpl implements IPositionService {
     }
 
     @Override
-    public List<Position> getAllPositions() {
-        return positionMapper.getAllPositions();
+    public List<Position> getAllPosition() {
+        return positionMapper.getAllPosition();
     }
 
     @Override

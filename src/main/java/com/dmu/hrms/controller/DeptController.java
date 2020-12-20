@@ -24,13 +24,6 @@ public class DeptController {
     // 查询所有部门返回列表页面
     @GetMapping("/depts")
     public String list(Model model,@RequestParam(value="pageNum",defaultValue="1") Integer pageNum) {
-//        List<Dept> depts = deptService.getAllDepts();
-//        List<Dept> depts = deptService.getEmpAndDept();
-
-        // 放在请求域中
-//        model.addAttribute("emps",emps);
-        // thymleaf默认就会拼串
-        // classpath:/templates/xxx.html
         if(ObjectUtils.isEmpty(pageNum)){
             pageNum= PaginationConstant.CURRENT_NUM;
         }
@@ -45,8 +38,6 @@ public class DeptController {
         //pageInfo.getNextPage(); 得到下一页
         //pageInfo.getPrePage(); 得到前一页
         PageInfo<Dept> pageInfo=new PageInfo<>(depts);
-        // model.addAttribute("depts",depts);
-        //用Model传递对象到page页面
         model.addAttribute("pageInfo",pageInfo);
         return "department/deptlist";
     }
@@ -79,7 +70,7 @@ public class DeptController {
         return "redirect:/depts";
     }
 
-    // 来到修改页面，查出当前合同，在页面显示
+    // 来到修改页面，查出当前部门，在页面显示
     @GetMapping("/dept/{id}")
     public String toUpdatePage(@PathVariable("id") Integer id,Model model) {
         Dept dept = deptService.getDeptById(id);

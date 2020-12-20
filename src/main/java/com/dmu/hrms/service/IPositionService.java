@@ -1,8 +1,6 @@
 package com.dmu.hrms.service;
 
-import com.dmu.hrms.bean.Dept;
 import com.dmu.hrms.bean.Position;
-import javafx.geometry.Pos;
 
 import java.util.List;
 
@@ -16,7 +14,7 @@ public interface IPositionService {
 
     int updatePosition(Position position);
 
-    List<Position> getAllPositions();
+    List<Position> getAllPosition();
 
 
 }

@@ -30,7 +30,6 @@ public class Contract {
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -38,7 +37,6 @@ public class Contract {
     public String getWorkID() {
         return workID;
     }
-
     public void setWorkID(String workID) {
         this.workID = workID;
     }
@@ -46,7 +44,6 @@ public class Contract {
     public Double getContractTerm() {
         return contractTerm;
     }
-
     public void setContractTerm(Double contractTerm) {
         this.contractTerm = contractTerm;
     }
@@ -54,7 +51,6 @@ public class Contract {
     public Date getBeginContract() {
         return beginContract;
     }
-
     public void setBeginContract(Date beginContract) {
         this.beginContract = beginContract;
     }
@@ -62,7 +58,6 @@ public class Contract {
     public Date getEndContract() {
         return endContract;
     }
-
     public void setEndContract(Date endContract) {
         this.endContract = endContract;
     }
@@ -70,7 +65,6 @@ public class Contract {
     public String getContractContent() {
         return contractContent;
     }
-
     public void setContractContent(String contractContent) {
         this.contractContent = contractContent;
     }
@@ -78,7 +72,6 @@ public class Contract {
     public String getContractType() {
         return contractType;
     }
-
     public void setContractType(String contractType) {
         this.contractType = contractType;
     }
@@ -86,7 +79,6 @@ public class Contract {
     public Emp getEmp() {
         return emp;
     }
-
     public void setEmp(Emp emp) {
         this.emp = emp;
     }

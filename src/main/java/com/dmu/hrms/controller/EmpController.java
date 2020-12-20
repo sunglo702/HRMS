@@ -73,7 +73,7 @@ public class EmpController {
         List<Nation> nations = nationService.getAllNations();
         model.addAttribute("nations",nations);
         // 查出所有职位
-        List<Position> positions = positionService.getAllPositions();
+        List<Position> positions = positionService.getAllPosition();
         model.addAttribute("positions",positions);
         return "emp/add";
     }
@@ -104,7 +104,7 @@ public class EmpController {
         List<Nation> nations = nationService.getAllNations();
         model.addAttribute("nations",nations);
         // 查出所有职位
-        List<Position> positions = positionService.getAllPositions();
+        List<Position> positions = positionService.getAllPosition();
         model.addAttribute("positions",positions);
         // 回到修改页面（add是一个修改添加二合一的页面）
         return "emp/add";

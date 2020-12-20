@@ -3,7 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dmu.hrms.mapper.PositionMapper">
-    <select id="getAllPositions" resultType="com.dmu.hrms.bean.Position">
+    <select id="getAllPosition" resultType="com.dmu.hrms.bean.Position">
         select * from position
     </select>
+    <select id="getPositiontById" resultType="com.dmu.hrms.bean.Position">
+        select * from position where id=#{id}
+    </select>
+    <delete id="deletePositionById">
+        delete from position where id=#{id}
+    </delete>
+
+    <insert id="addPosition" parameterType="com.dmu.hrms.bean.Position">
+        insert into position(id, name, did) values(#{id}, #{name}, #{did})
+    </insert>
+
+    <update id="updatePosition" parameterType="com.dmu.hrms.bean.Position">
+        update position set name=#{name} where id=#{id}
+    </update>
 </mapper>

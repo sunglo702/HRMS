@@ -10,18 +10,18 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://81.70.192.30/hrms" userId="root" password="123456">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://81.70.192.30:3306/hrms" userId="root" password="123456">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="com.demo.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.dmu.hrms.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="com.demo.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.dmu.hrms.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->

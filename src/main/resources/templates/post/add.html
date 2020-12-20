@@ -11,7 +11,6 @@
     <title>后台管理</title>
     <!-- Bootstrap core CSS -->
     <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.css}" rel="stylesheet">
-s
     <!-- Custom styles for this template -->
     <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
     <link href="iconfont/iconfont.css" th:href="@{/iconfont/iconfont.css}" rel="stylesheet">
@@ -47,24 +46,34 @@ s
 <div class="container-fluid">
     <div class="row">
         <!--引入侧边栏-->
-        <div th:replace="commons/bar::#sidebar(activeUri='department')"></div>
+        <div th:replace="commons/bar::#sidebar(activeUri='position')"></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <!--需要区分是员工修改还是添加；-->
-            <form th:action="@{/dept}" method="post">
+            <form th:action="@{/position}" method="post">
                 <!--发送put请求修改部门数据-->
                 <!--
                 1、SpringMVC中配置HiddenHttpMethodFilter;（SpringBoot自动配置好的）
                 2、页面创建一个post表单
                 3、创建一个input项，name="_method";值就是我们指定的请求方式
                 -->
-                <input type="hidden" name="_method" value="put" th:if="${dept!=null}"/>
-                <input type="hidden" name="id" th:if="${dept!=null}" th:value="${dept.id}">
+                <input type="hidden" name="_method" value="put" th:if="${position!=null}"/>
+                <input type="hidden" name="id" th:if="${position!=null}" th:value="${position.id}">
+
+
                 <div class="form-group">
-                    <label>部门名称</label>
-                    <input name="name" type="text" class="form-control" placeholder="renshibu" th:value="${dept!=null}?${dept.name}">
+                    <label>岗位名称</label>
+                    <input name="name" type="text" class="form-control" placeholder="jingli" th:value="${position!=null}?${position.name}">
+
                 </div>
-                <button type="submit" class="btn btn-primary" th:text="${dept!=null}?'修改':'添加'">添加</button>
+                <div>
+                    <label>所属部门</label>
+                    <!--提交的是部门的id-->
+                    <select class="form-control" name="did">
+                        <option th:selected="${position!=null}?${position.did == dept.id}" th:value="${dept.id}" th:each="dept:${depts}" th:text="${dept.name}"></option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" th:text="${position!=null}?'修改':'添加'">添加</button>
             </form>
         </main>
     </div>
