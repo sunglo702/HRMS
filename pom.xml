@@ -8,7 +8,7 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.xtu</groupId>
+    <groupId>com.dmu</groupId>
     <artifactId>human-resource-management-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>human-resource-management-system</name>
@@ -116,6 +116,13 @@
             <version>7.0.0-beta1</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -130,33 +137,40 @@
         </dependency>
     </dependencies>
 
-    <executions>
-        <execution>
-            <id>Generate MyBatis Artifacts</id>
-            <phase>package</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-        </execution>
-    </executions>
-    <configuration>
-        <!--允许移动生成的文件 -->
-        <verbose>true</verbose>
-        <!-- 是否覆盖 -->
-        <overwrite>true</overwrite>
-        <!-- 自动生成的配置 -->
-        <configurationFile>
-            src/main/resources/mybatis-generator.xml</configurationFile>
-    </configuration>
 
     <build>
-<!--        可以将应用打包成一个可执行的jar包-->
+        <finalName>mybatis-generator</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-        </plugins>
-    </build>
 
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <!--此处需要注意， 文件与上面的文件匹配-->
+                    <configurationFile>src/main/resources/mybatis-generator.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
 </project>
