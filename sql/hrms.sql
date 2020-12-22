@@ -17,11 +17,6 @@ CREATE TABLE `appraise`  (
   CONSTRAINT `appraise_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `emp` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '评估' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of appraise
--- ----------------------------
-INSERT INTO `appraise` VALUES (1, 1, '2018-08-07', '优', '', '');
-INSERT INTO `appraise` VALUES (2, 4, '2018-08-07', '良', '', '');
 
 -- ----------------------------
 -- Table structure for contract
@@ -38,13 +33,6 @@ CREATE TABLE `contract`  (
   INDEX `workID`(`workID`) USING BTREE,
   CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`workID`) REFERENCES `emp` (`workID`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '合同' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of contract
--- ----------------------------
-INSERT INTO `contract` VALUES (1, 'sdf4215', 10, '2011-07-05', '2021-08-07', 'xxxxxxxxxxxxxxxxxxxxx');
-INSERT INTO `contract` VALUES (2, 'sdf7425', 5, '2015-07-09', '2020-12-09', '');
-INSERT INTO `contract` VALUES (3, 'sdf5437', 6, '2017-05-10', '2023-05-10', '');
 
 -- ----------------------------
 -- Table structure for dept
@@ -313,14 +301,7 @@ CREATE TABLE `salary`  (
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '工资账套' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of salary
--- ----------------------------
-INSERT INTO `salary` VALUES (1, 4000, 4000, 800, 500, NULL, 2000, 0.07000000029802322, 2000, 0.07000000029802322, 2000, 0.07000000029802322, '营销部工资账套');
-INSERT INTO `salary` VALUES (2, 2000, 3000, 400, 1000, NULL, 2000, 0.07000000029802322, 2000, 0.07000000029802322, 2000, 0.07000000029802322, '人事部工资账套');
-INSERT INTO `salary` VALUES (3, 5000, 3000, 500, 500, NULL, 4000, 0.07000000029802322, 4000, 0.07000000029802322, 4000, 0.07000000029802322, '运维部工资账套');
-
+s
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
@@ -341,4 +322,37 @@ CREATE TABLE `user`  (
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'admin', '123456', 'admin@163.com', 1);
 
+
+DROP TABLE IF EXISTS `transfer`;
+CREATE TABLE `transfer`  (
+	`id` int(11) not null auto_increment comment 'id',
+	`didbefore` int(11) null default null comment '前部门id',
+	`pidbefore` int(11) null default null comment '前岗位id',
+	`didafter` int(11) null default null comment '后部门id',
+	`pidafter` int(11) null default null comment '后岗位id',
+	`datetime` date null default null comment '调动时间',
+	`number` int(11) null default null comment '调动次数',
+	primary key (`id`) using btree
+	)ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '调动记录' ROW_FORMAT = DYNAMIC;
+
+drop table if exists `resign`;
+create table `resign`(
+    `id` int(11) not null auto_increment comment 'id',
+    `pid` int(11) null comment '岗位id',
+    `did` int(11) null comment '部门ID',
+    `date` date null comment '离职时间',
+    PRIMARY KEY (`id`) USING BTREE
+)ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '离职' ROW_FORMAT = DYNAMIC;
+
+drop table if exists `talent`;
+create table `talent`(
+    `id` int(11) not null comment 'id',
+    `name` varchar(255) null comment '姓名',
+    `positionname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL  null comment '期待岗位名称',
+    primary key (`id`)
+)ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '人才库' ROW_FORMAT = DYNAMIC;
+
+
 SET FOREIGN_KEY_CHECKS = 1;
+
+
