@@ -1,5 +1,6 @@
 package com.dmu.hrms.service.impl;
 
+import com.dmu.hrms.bean.Emp;
 import com.dmu.hrms.bean.Position;
 import com.dmu.hrms.mapper.DeptMapper;
 import com.dmu.hrms.mapper.PositionMapper;
@@ -38,4 +39,10 @@ public class PositionServiceImpl implements IPositionService {
     public int updatePosition(Position position) {
         return positionMapper.updatePosition(position);
     }
+
+    @Override
+    public List<Emp> queryByPosition(String name) {
+        return positionMapper.queryByPosition(name);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.dmu.hrms.service;
 
 import com.dmu.hrms.bean.Dept;
+import com.dmu.hrms.bean.Emp;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface IDeptService {
 
     int updateDept(Dept dept);
 
-    //List<Dept> query(String name);
+    List<Emp> queryByDept(String name);
 }

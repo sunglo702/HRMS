@@ -57,4 +57,13 @@ public class EmpServiceImpl implements IEmpService {
     public List<Emp> query(String name) {
         return empMapper.query(name);
     }
+
+    @Override
+    public List<Emp> queryByDept(String name) {
+        return empMapper.queryByDept(name);
+    }
+    @Override
+    public List<Emp> queryByPosition(String name) {
+        return empMapper.queryByPosition(name);
+    }
 }

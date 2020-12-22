@@ -21,7 +21,13 @@ import java.util.List;
 public class PosController {
     @Autowired
     IPositionService positionService;
+
+    @Autowired
     IDeptService deptService;
+
+    @Autowired
+    IEmpService empService;
+
     // 查询所有岗位返回列表页面
     @GetMapping("/positions")
     public String list(Model model,@RequestParam(value="pageNum",defaultValue="1") Integer pageNum) {
@@ -50,11 +56,11 @@ public class PosController {
     // 来到岗位添加页面
     @GetMapping("/position")
     public String toAddPage(Model model) {
-        //List<Position> positions=positionService.getAllPositions();
-        //model.addAttribute("positions",positions);
+        // 来到添加页面，查出所有的部门，在页面显示
         List<Dept> depts = deptService.getAllDepts();
         model.addAttribute("depts",depts);
-        // 来到添加页面，查出所有的部门，在页面显示
+        //List<Position> positions=positionService.getAllPositions();
+        //model.addAttribute("positions",positions);
         // 查出所有民族
         //List<Nation> nations = nationService.getAllNations();
         // model.addAttribute("nations",nations);
@@ -77,12 +83,11 @@ public class PosController {
     // 来到修改页面，查出当前岗位，在页面显示
     @GetMapping("/position/{id}")
     public String toUpdatePage(@PathVariable("id") Integer id,Model model) {
-        // 页面要显示岗位
-        //List<Dept> depts = deptService.getAllDepts();
-        //model.addAttribute("depts",depts);
-
         Position position = positionService.getPositionById(id);
         model.addAttribute("position",position);
+        // 页面要显示所有的部门列表
+        List<Dept> depts = deptService.getAllDepts();
+        model.addAttribute("depts",depts);
         // 回到修改页面（add是一个修改添加二合一的页面）
         return "post/add";
     }
@@ -102,17 +107,17 @@ public class PosController {
     }
 
 
-    // 查询某个部门
-    /*@PostMapping("/search")//提交表单+传回前端的映射
-    public String queryDept(@RequestParam String name, Model model, @RequestParam(value="pageNum",defaultValue="1")Integer pageNum){
+    //查询某个岗位
+    @PostMapping("/searchByPosition")//提交表单+传回前端的映射
+    public String queryByPosition(@RequestParam String name, Model model, @RequestParam(value="pageNum",defaultValue="1")Integer pageNum){
         PageHelper.startPage(pageNum, PaginationConstant.PAGE_SIZE);
         //查找数据
-        List<Dept> depts=deptService.query(name);
-        model.addAttribute("depts",depts);//传回前端
-        PageInfo<Dept> pageInfo=new PageInfo<>(depts);
+        List<Emp> emps=empService.queryByPosition(name);
+        model.addAttribute("emps",emps);//传回前端
+        PageInfo<Emp> pageInfo=new PageInfo<>(emps);
         // model.addAttribute("emps",emps);
         //用Model传递对象到page页面
         model.addAttribute("pageInfo",pageInfo);
-        return "dept/list";
-    }*/
+        return "emp/list";
+    }
 }

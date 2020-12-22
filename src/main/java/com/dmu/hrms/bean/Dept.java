@@ -4,16 +4,15 @@ public class Dept {
     private Integer id;
     private String name;
 
+    private Emp emp;
+    private Position position;
     public Dept() {
     }
-
-    public Dept(String name) {
-        this.name = name;
-    }
-
-    public Dept(Integer id, String name) {
+    public Dept(Integer id, String name,Position position, Emp emp) {
         this.id = id;
         this.name = name;
+        this.position=position;
+        this.emp=emp;
     }
 
     public Integer getId() {
@@ -32,11 +31,20 @@ public class Dept {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Dept{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public Emp getEmp() {
+        return emp;
     }
+
+    public void setEmp(Emp emp) {
+        this.emp = emp;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
 }

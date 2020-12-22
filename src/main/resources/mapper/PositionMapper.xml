@@ -3,10 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dmu.hrms.mapper.PositionMapper">
+    <resultMap id="MyPos" type="com.dmu.hrms.bean.Position">
+        <!--         指定主键列的封装规则  column：指定哪一列 property：指定对于的javaBean属性-->
+        <!--        id 定义主键-->
+        <id column="id" property="id"/>
+        <!--        result 定义普通列封装规则-->
+
+        <result column="name" property="name"/>
+        <result column="did" property="did"/>
+
+        <association property="emp" javaType="com.dmu.hrms.bean.Emp">
+            <id column="eid" property="id"/>
+            <result column="empname" property="name"/>
+        </association>
+        <association property="dept" javaType="com.dmu.hrms.bean.Dept">
+            <id column="did" property="id"/>
+            <result column="deptname" property="name"/>
+        </association>
+    </resultMap>
     <select id="getAllPosition" resultType="com.dmu.hrms.bean.Position">
         select * from position
     </select>
-    <select id="getPositiontById" resultType="com.dmu.hrms.bean.Position">
+    <select id="getPositionById" resultType="com.dmu.hrms.bean.Position">
         select * from position where id=#{id}
     </select>
     <delete id="deletePositionById">
@@ -14,10 +32,19 @@
     </delete>
 
     <insert id="addPosition" parameterType="com.dmu.hrms.bean.Position">
-        insert into position(id, name, did) values(#{id}, #{name}, #{did})
+        insert into position (id, name, did) values (#{id}, #{name}, #{did})
     </insert>
 
     <update id="updatePosition" parameterType="com.dmu.hrms.bean.Position">
-        update position set name=#{name} where id=#{id}
+        update position set name=#{name}, did=#{did}
+        where id=#{id}
     </update>
+
+    <select id="queryByPosition" resultMap="MyPos">
+        select  e.id id, e.name name, e.age age, e.gender gender, e.birthday birthday, e.IDCard IDCard, e.wedlock wedlock,
+                e.nationId nationId, e.nativePlace nativePlace, e.email email, e.phone phone, e.address address,
+                e.deptId deptId, e.posId posId, e.degree degree,e.school school, e.edate edate,
+                e.workState workState, e.workID workID,e.conversionTime conversionTime,e.workAge workAge,e.notWorkDate notWorkDate, d.id did, d.name deptname,p.id pid, p.name posname
+        from emp e,dept d,position p where e.deptId=d.id and e.posId=p.id and p.name = #{name}
+    </select>
 </mapper>

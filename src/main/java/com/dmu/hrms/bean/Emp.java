@@ -289,34 +289,5 @@ public class Emp {
         this.converseState = converseState;
     }
 
-    @Override
-    public String toString() {
-        return "Emp{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", birthday=" + birthday +
-                ", IDCard='" + IDCard + '\'' +
-                ", wedlock='" + wedlock + '\'' +
-                ", nationId=" + nationId +
-                ", nativePlace='" + nativePlace + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", deptId=" + deptId +
-                ", posId=" + posId +
-                ", degree='" + degree + '\'' +
-                ", school='" + school + '\'' +
-                ", edate=" + edate +
-                ", workState='" + workState + '\'' +
-                ", workID='" + workID + '\'' +
-                ", conversionTime=" + conversionTime +
-                ", workAge=" + workAge +
-                ", notWorkDate=" + notWorkDate +
-                ", nation=" + nation +
-                ", position=" + position +
-                ", dept=" + dept +
-                '}';
-    }
+
 }

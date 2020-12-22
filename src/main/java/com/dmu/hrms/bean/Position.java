@@ -6,13 +6,16 @@ public class Position {
     public Integer did;
 
     private Dept dept;
+    private Emp emp;
     public Position() {
     }
 
-    public Position(Integer id, String name, Integer did) {
+    public Position(Integer id, String name, Integer did,Emp emp, Dept dept) {
         this.id = id;
         this.name = name;
         this.did=did;
+        this.emp=emp;
+        this.dept=dept;
     }
 
     public Integer getDid() {
@@ -42,6 +45,8 @@ public class Position {
     public Dept getDept(){return dept;}
 
     public void setDept(Dept dept){this.dept=dept;}
+    public Emp getEmp(){return emp;}
+    public void setEmp(Emp emp){this.emp=emp;}
     public String toString() {
         return "Position{" +
                 "id=" + id +

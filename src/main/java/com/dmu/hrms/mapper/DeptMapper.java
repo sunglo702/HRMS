@@ -1,6 +1,7 @@
 package com.dmu.hrms.mapper;
 
 import com.dmu.hrms.bean.Dept;
+import com.dmu.hrms.bean.Emp;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -27,5 +28,6 @@ public interface DeptMapper {
 //    @Update("update dept set name=#{name} where id=#{id}")
     int updateDept(Dept dept);
 
-    //List<Dept> query(String name);
+    //根据部门查找对应员工
+    List<Emp> queryByDept(String name);
 }

@@ -21,6 +21,9 @@ public class DeptController {
     @Autowired
     IDeptService deptService;
 
+    @Autowired
+    IEmpService empService;
+
     // 查询所有部门返回列表页面
     @GetMapping("/depts")
     public String list(Model model,@RequestParam(value="pageNum",defaultValue="1") Integer pageNum) {
@@ -98,17 +101,17 @@ public class DeptController {
     }
 
 
-    // 查询某个部门
-    /*@PostMapping("/search")//提交表单+传回前端的映射
-    public String queryDept(@RequestParam String name, Model model, @RequestParam(value="pageNum",defaultValue="1")Integer pageNum){
+    // 查询某个部门的员工
+    @PostMapping("/searchByDept")//提交表单+传回前端的映射
+    public String queryByDept(@RequestParam String names, Model model, @RequestParam(value="pageNum",defaultValue="1")Integer pageNum){
         PageHelper.startPage(pageNum, PaginationConstant.PAGE_SIZE);
         //查找数据
-        List<Dept> depts=deptService.query(name);
-        model.addAttribute("depts",depts);//传回前端
-        PageInfo<Dept> pageInfo=new PageInfo<>(depts);
+        List<Emp> emps=empService.queryByDept(names);
+        model.addAttribute("emps",emps);//传回前端
+        PageInfo<Emp> pageInfo=new PageInfo<>(emps);
         // model.addAttribute("emps",emps);
         //用Model传递对象到page页面
         model.addAttribute("pageInfo",pageInfo);
-        return "dept/list";
-    }*/
+        return "emp/list";
+    }
 }

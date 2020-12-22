@@ -39,9 +39,8 @@ public class DeptServiceImpl implements IDeptService {
         return deptMapper.updateDept(dept);
     }
 
-
-    //@Override
-    //public List<Dept> query(String name) {
-    //    return deptMapper.query(name);
-    //}
+    @Override
+    public List<Emp> queryByDept(String name) {
+        return deptMapper.queryByDept(name);
+    }
 }

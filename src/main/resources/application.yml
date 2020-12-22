@@ -42,7 +42,7 @@ spring:
 
 # 整合mybatis
 mybatis:
-#  type-aliases-package: com.xtu.hrms.bean
+#  type-aliases-package: com.dmu.hrms.bean
   mapper-locations: classpath:mapper/*.xml
 
 # 分页

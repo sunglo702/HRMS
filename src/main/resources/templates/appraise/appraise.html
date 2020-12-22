@@ -97,8 +97,9 @@
 									<td>[[${appraise.appContent}]]</td>
 									<td>[[${appraise.remark}]]</td>
 									<td>
-										<a class="btn btn-sm btn-primary" th:href="@{/appraise/}+${appraise.id}">编辑</a>
-										<button th:attr="del_uri=@{/appraise/}+${appraise.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
+										<a class="btn btn-sm btn-success" th:href="@{/appraise/}+${appraise.id}">通过</a>
+										<a class="btn btn-sm btn-primary" th:href="@{/contract/}">延长</a>
+										<button th:attr="del_uri=@{/appraise/}+${appraise.id}" class="btn btn-sm btn-danger deleteBtn">拒绝</button>
 									</td>
 								</tr>
 							</tbody>

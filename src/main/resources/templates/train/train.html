@@ -93,8 +93,9 @@
 									<td>[[${train.trainContent}]]</td>
 									<td>[[${train.remark}]]</td>
 									<td>
-										<a class="btn btn-sm btn-primary" th:href="@{/train/}+${train.id}">编辑</a>
-										<button th:attr="del_uri=@{/train/}+${train.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
+										<a class="btn btn-sm btn-primary" th:href="@{/train/}+${train.id}">通过</a>
+										<a class="btn btn-sm btn-primary" th:href="@{/contract}">延期</a>
+										<button th:attr="del_uri=@{/train/}+${train.id}" class="btn btn-sm btn-danger deleteBtn">不通过</button>
 									</td>
 								</tr>
 							</tbody>

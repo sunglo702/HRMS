@@ -63,9 +63,9 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <h2 class="add"><a class="btn btn-sm btn-success" href="/dept" th:href="@{/dept}">添加</a></h2>
-            <form class="navbar-form navbar-right" th:action="@{/search}" method="post">
+            <form class="navbar-form navbar-right" th:action="@{/searchByDept}" method="post">
                 <div class="input-group mb-3">
-                    <input name="name" type="text" class="form-control" placeholder="Search">
+                    <input name="names" type="text" class="form-control" placeholder="Search">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="submit">
                             <span class="iconfont icon&#45;&#45;search1"></span>

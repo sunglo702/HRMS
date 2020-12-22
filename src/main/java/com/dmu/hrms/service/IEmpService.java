@@ -22,4 +22,6 @@ public interface IEmpService {
     int updateEmp(Emp emp);
 
     List<Emp> query(String name);
+    List<Emp> queryByDept(String name);
+    List<Emp> queryByPosition(String name);
 }
