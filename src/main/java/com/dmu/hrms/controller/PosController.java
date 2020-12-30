@@ -59,14 +59,6 @@ public class PosController {
         // 来到添加页面，查出所有的部门，在页面显示
         List<Dept> depts = deptService.getAllDepts();
         model.addAttribute("depts",depts);
-        //List<Position> positions=positionService.getAllPositions();
-        //model.addAttribute("positions",positions);
-        // 查出所有民族
-        //List<Nation> nations = nationService.getAllNations();
-        // model.addAttribute("nations",nations);
-        // 查出所有职位
-        //List<Position> positions = positionService.getAllPositions();
-        //model.addAttribute("positions",positions);
         return "post/add";
     }
 
@@ -115,7 +107,6 @@ public class PosController {
         List<Emp> emps=empService.queryByPosition(name);
         model.addAttribute("emps",emps);//传回前端
         PageInfo<Emp> pageInfo=new PageInfo<>(emps);
-        // model.addAttribute("emps",emps);
         //用Model传递对象到page页面
         model.addAttribute("pageInfo",pageInfo);
         return "emp/list";

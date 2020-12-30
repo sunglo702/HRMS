@@ -6,6 +6,7 @@ server:
     context-path: /
 spring:
   datasource:
+    #woqjix-qeQne7-jargij
     username: root
     password: 123456
     url: jdbc:mysql://81.70.192.30:3306/hrms?useUnicode=true&characterEncoding=UTF-8

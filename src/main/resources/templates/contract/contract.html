@@ -102,7 +102,7 @@
 									<td>[[${contract.contractContent}]]</td>
 									<td>
 										<a class="btn btn-sm btn-primary" th:href="@{/contract/}+${contract.id}">延长</a>
-										<button th:attr="del_uri=@{/contract/}+${contract.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
+										<button th:attr="del_uri=@{/contract/}+${contract.id}" class="btn btn-sm btn-danger deleteBtn" onclick="return confirm('确认要删除么？')">删除</button>
 									</td>
 								</tr>
 							</tbody>

@@ -40,11 +40,5 @@
         where id=#{id}
     </update>
 
-    <select id="queryByPosition" resultMap="MyPos">
-        select  e.id id, e.name name, e.age age, e.gender gender, e.birthday birthday, e.IDCard IDCard, e.wedlock wedlock,
-                e.nationId nationId, e.nativePlace nativePlace, e.email email, e.phone phone, e.address address,
-                e.deptId deptId, e.posId posId, e.degree degree,e.school school, e.edate edate,
-                e.workState workState, e.workID workID,e.conversionTime conversionTime,e.workAge workAge,e.notWorkDate notWorkDate, d.id did, d.name deptname,p.id pid, p.name posname
-        from emp e,dept d,position p where e.deptId=d.id and e.posId=p.id and p.name = #{name}
-    </select>
+
 </mapper>

@@ -87,7 +87,7 @@
                         <td>[[${dept.name}]]</td>
                         <td>
                             <a class="btn btn-sm btn-primary" th:href="@{/dept/}+${dept.id}">编辑</a>
-                            <button th:attr="del_uri=@{/dept/}+${dept.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
+                            <button th:attr="del_uri=@{/dept/}+${dept.id}" class="btn btn-sm btn-danger deleteBtn" onclick="return confirm('确认要删除么？')">删除</button>
                         </td>
                     </tr>
                     </tbody>
